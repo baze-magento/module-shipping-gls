@@ -2,16 +2,16 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <carriers>
-            <gls_parcel_shop>
+            <glsparcelshop>
                 <active>1</active>
                 <sallowspecific>0</sallowspecific>
                 <model>Baze\ShippingGLS\Model\ParcelShop\Shipping</model>
-                <name>GLS Parcel Shop Drop-Off Shipping Method</name>
+                <name>Free</name>
                 <price>0.00</price>
-                <title>GLS Parcel Shop Drop-Off Shipping Method</title>
+                <title>GLS Parcel Shop Drop-Off</title>
                 <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
                 <handling_type>F</handling_type>
-            </gls_parcel_shop>
+            </glsparcelshop>
         </carriers>
     </default>
 </config>

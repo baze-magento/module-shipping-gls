@@ -1,0 +1,33 @@
+"Unable to load the shop list.","Unable to load the shop list."
+"A Zipcode or Address must be set.","A Zipcode or Address must be set."
+"Error: Failed to assign shop to session due to missing information. Debug data: ","Error: Failed to assign shop to session due to missing information. Debug data: "
+"Address not found","Address not found"
+"Error: Can't set order location; missing session information.","Error: Can't set order location; missing session information."
+"Error: Can't set order location; unable to load order.","Error: Can't set order location; unable to load order."
+"Show Hours","Show Hours"
+"Choose Shop","Choose Shop"
+"Choose a parcel shop","Choose a parcel shop"
+"Enter your postal code, plus an optional address for closer results:","Enter your postal code, plus an optional address for closer results:"
+"Postal Code","Postal Code"
+Address,Address
+Search,Search
+Loading,Loading
+"No relays found","No relays found"
+"Confirm Location","Confirm Location"
+"Please confirm shipping to this location:","Please confirm shipping to this location:"
+"Error : unable to select null location ","Error : unable to select null location "
+"Change selection","Change selection"
+"Please choose a parcel shop in order to use this shipping method.","Please choose a parcel shop in order to use this shipping method."
+"You have to set a phone number to ship to a GLS Parcel Shop.","You have to set a phone number to ship to a GLS Parcel Shop."
+"GLS Parcel Shop Drop-Off Shipping Method","GLS Parcel Shop Drop-Off Shipping Method"
+Enabled,Enabled
+"Method Name","Method Name"
+Price,Price
+"Calculate Handling Fee","Calculate Handling Fee"
+"Handling Fee","Handling Fee"
+"Sort Order","Sort Order"
+Title,Title
+"Ship to Applicable Countries","Ship to Applicable Countries"
+"Ship to Specific Countries","Ship to Specific Countries"
+"Show Method if Not Applicable","Show Method if Not Applicable"
+"Displayed Error Message","Displayed Error Message"

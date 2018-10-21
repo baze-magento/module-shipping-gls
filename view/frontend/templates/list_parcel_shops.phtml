@@ -1,0 +1,57 @@
+<?php
+if ($locations = $block->getLocations()) {
+    $i = 0;
+    if (array_key_exists('errorCode', $locations)) {
+        echo '<div class="error">';
+        echo 'Error '.$locations['errorCode'].' : '.$locations['errorDscr'];
+        echo '</div>';
+    }else {
+        foreach ($locations as $location) {
+            ?>
+            <div class="location" id="location_<?php echo $i ?>">
+                <span class="index"><?php echo $i; ?></span>
+                <span class="id"><?php echo $location['Id']; ?></span>
+                <span class="name"><?php echo $location['Name']; ?></span>
+                <span class="address"><?php echo $location['Address']; ?></span>
+                <span class="zipcode"><?php echo $location['ZipCode']; ?></span>
+                <span class="city"><?php echo $location['City']; ?></span>
+                <span class="latitude"><?php echo $location['Latitude']; ?></span>
+                <span class="longitude"><?php echo $location['Longitude']; ?></span>
+                <div>
+                    <span class="show_schedule"><?php echo __("Show Hours") ?></span>
+                </div>
+                <span class="schedule">
+                    <table cellpadding="0" cellspacing="0">
+                        <?php
+                        if (array_key_exists('OpenHours', $location)) {
+                            foreach ($location['OpenHours'] as $workingDay) {
+                                echo '<tr>';
+                                echo '<td class="day">'.$workingDay->day.'</td>';
+                                if (property_exists($workingDay->breaks, 'From') && property_exists($workingDay->breaks, 'To')) {
+                                    echo '<td class="opening_hours">'.
+                                         $block->formatHours($workingDay->openAt->From).
+                                         ' : '.$block->formatHours($workingDay->breaks->From).
+                                         ' / '.$block->formatHours($workingDay->breaks->To).
+                                         ' : '.$block->formatHours($workingDay->openAt->To).
+                                         '</td>';
+                                }else {
+                                    echo '<td class="opening_hours">'.
+                                         $block->formatHours($workingDay->openAt->From).
+                                         ' : '.$block->formatHours($workingDay->openAt->To).
+                                         '</td>';
+                                }
+                                echo '</tr>';
+                            }
+                        }
+                        ?>
+                    </table>
+                </span>
+                <button class="button choose" data-index="<?php echo $i; ?>">
+                    <?php echo __('Choose Shop'); ?>
+                </button>
+            </div>
+            <?php
+            $i++;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+<?php
+$_helper = $this->helper('Baze\ShippingGLS\Helper\Tools');
+$loadUrl = $block->getAjaxLoadUrl();
+$saveUrl = $block->getAjaxSaveUrl();
+
+$strings = [
+    'chooseShop' => __('Choose a parcel shop'),
+    'instructions' => __('Enter your postal code, plus an optional address for closer results:'),
+    'zipcode' => __('Postal Code'),
+    'address' => __('Address'),
+    'search' => __('Search'),
+    'loading' => __('Loading')
+];
+
+?>
+<script type="text/javascript">
+    require(['jquery', 'parcelShop'], function ($, parcelShop) {
+        parcelShop.setSaveUrl('<?= $saveUrl ?>');
+        parcelShop.setLoadUrl('<?= $loadUrl ?>');
+    
+        // Search function listeners
+        $('#parcelshop_popup_wrapper .search_button').click(function () {
+            parcelShop.search();
+        });
+        $('#parcelshop_popup_wrapper input').on("keyup", function(e) {
+            if (e.keyCode == 13) parcelShop.search();
+        });
+        // Hours button listener
+        $('#parcelshop_popup_wrapper').on('click', '.show_schedule', function() {
+            $(this).closest('.location').find('.schedule').toggle();
+        });
+    });
+</script>
+
+<div id="parcelshop_popup_wrapper" style="display:none;" class="parcelshop_popup">
+    <div>
+        <p class="title"><?= $strings['chooseShop'] ?></p>
+        <div class="content">
+            <div class="header">
+                <div class="search_field">
+                    <label for="parcelshop_zipcode"><?= $strings['zipcode'] ?>*</label>
+                    <input id="parcelshop_zipcode" type="text" value="">
+                </div>
+                <div class="search_field">
+                    <label for="parcelshop_address"><?= $strings['address'] ?> </label>
+                    <input type="text" id="parcelshop_address" value="">
+                </div>
+                <button class="search_button"><?= $strings['search'] ?></button>
+                <span class="load_spinner" alt="<?= $strings['loading'] ?>" style="display: none">
+            </div>
+            <div class="body" />
+        </div>
+    </div>
+</div>

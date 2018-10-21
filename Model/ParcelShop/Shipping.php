@@ -9,8 +9,9 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
 {
     /**
      * @var string
+     * Must not contain underscores. Alphanumeric preferred, other characters may function (untested).
      */
-    protected $_code = 'gls_parcel_shop';
+    protected $_code = 'glsparcelshop';
 
     /**
      * @var \Magento\Shipping\Model\Rate\ResultFactory
