@@ -1,0 +1,33 @@
+"Unable to load the shop list.","Ikke i stand til at indlæste listen af pakkeshops."
+"A Zipcode or Address must be set.","Postnummer eller adresse er krævet."
+"Error: Failed to assign shop to session due to missing information. Debug data: ","Fejl: Kunne ikke koble pakkeshop til session på grund af manglende information. Debug-data: "
+"Address not found","Adresse ikke fundet"
+"Error: Can't set order location; missing session information.","Fejl: Kan ikke indstille ordre-lokation; mangler information fra session."
+"Error: Can't set order location; unable to load order.","Fejl: Kan ikke indstille ordre-lokation; kan ikke indlæse ordre."
+"Show Hours","Vis åbningstider"
+"Choose Shop","Vælg Shop"
+"Choose a parcel shop","Vælg en pakkeshop"
+"Enter your postal code, plus an optional address for closer results:","Indtast dit postnummer, og evt. en adresse for mere præcise resultater:"
+"Postal Code","Postnummer"
+Address,Adresse
+Search,Søg
+Loading,Indlæser
+"No relays found","Fandt ingen lokationer"
+"Confirm Location","Bekræft Lokation"
+"Please confirm shipping to this location:","Bekræft levering til denne lokation:"
+"Error : unable to select null location ","Fejl : kan ikke vælge en ikke-eksisterende lokation "
+"Change selection","Ændr valg"
+"Please choose a parcel shop in order to use this shipping method.","Du skal vælge en pakkeshop for at bruge denne fragtmetode."
+"You have to set a phone number to ship to a GLS Parcel Shop.","Du skal indstille et telefonnummer for at levere til en GLS PakkeShop."
+"GLS Parcel Shop Drop-Off Shipping Method","GLS Pakkeshop-fragtmetode"
+Enabled,Slået til
+"Method Name","Metodenavn"
+Price,Pris
+"Calculate Handling Fee","Udregn ekspeditionsgebyr"
+"Handling Fee","Ekspeditionsgebyr"
+"Sort Order","Sortering"
+Title,Titel
+"Ship to Applicable Countries","Levér til tilgængelige lande"
+"Ship to Specific Countries","Levér til specifikke lande"
+"Show Method if Not Applicable","Vis fragtmetode, selv når den er ugyldig"
+"Displayed Error Message","Vist fejlmeddelelse"
