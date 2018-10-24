@@ -1,5 +1,5 @@
 {
-  "name": "baze-magento/module-shipping-gls",
+  "name": "baze/module-shipping-gls",
   "description": "Handles shipping integration with GLS.",
   "require": {
     "magento/framework": "^100.0|^101.0",
