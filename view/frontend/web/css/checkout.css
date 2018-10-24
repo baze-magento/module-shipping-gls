@@ -66,11 +66,6 @@
     height: 100%;
 }
 */
-#parcelshop_popup_wrapper .body {
-    height: 400px;
-    overflow: hidden;
-    overflow-y: scroll;
-}
 
 #parcelshop_popup_wrapper .latitude,
 #parcelshop_popup_wrapper .longitude,
@@ -218,3 +213,38 @@
     }
 }
 
+@media all and (min-width:768px) {
+    #parcelshop_popup_wrapper .body {
+        height: 400px;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+}
+@media all and (max-width:767px){
+    #parcelshop_popup_wrapper .header label {
+        width: 100px !important;
+    }
+    #parcelshop_popup_wrapper .header input {
+        width: auto !important;
+    }
+}
+/* Fix for unscrollable modals on old Safari and Samsung browsers. */
+@media all and (max-width:767px){
+    body._has-modal {
+        overflow-y: auto;
+    }
+    body._has-modal .page-wrapper {
+        position: absolute;
+        min-width: 100vw;
+        min-height: 100vh;
+    }
+    body._has-modal .modal-popup._show {
+        position: relative;
+        left: 0;
+        margin: 0 0 0 40px;
+    }
+    /* Fix for second-level modals not showing up. This also means they don't get the scrolling fixes, though. */
+    body._has-modal .modal-popup._show ~ ._show {
+        position: fixed;
+    }
+}
