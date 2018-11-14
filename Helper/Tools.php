@@ -15,7 +15,7 @@ class Tools extends AbstractHelper
     /**
      * Get values from the Magento configuration
      * @param string $field : field in the Magento configuration. Get exact name from /etc/adminhtml/system.xml file
-     * @param string $group : group the searched field is belonging to. Get exact name from /etc/adminhtml/system.xml file
+     * @param string $group : group the searched field belongs to. Get exact name from /etc/adminhtml/system.xml file
      * @param string $section : section in the Magento configuration.
      * @param $scope : scope of the config value
      * @param null|string $scopeCode : scope of the config value
@@ -27,7 +27,7 @@ class Tools extends AbstractHelper
         $section = '',
         $scope = ScopeConfigInterface::SCOPE_STORE,
         $scopeCode = null
-    ){
+    ) {
         // Construct field path in configuration
         if (empty($section) || empty($group) || empty($field)) {
             return '';
@@ -49,8 +49,10 @@ class Tools extends AbstractHelper
         $messageType = 'info',
         array $details = [],
         $fileName = 'gls.log'
-    ){
-        if(!is_string($message) || !is_string($messageType) || !is_string($fileName)) return;
+    ) {
+        if (!is_string($message) || !is_string($messageType) || !is_string($fileName)) {
+            return;
+        }
         $availableTypes = ['info', 'err', 'debug'];
         $writer = new \Zend\Log\Writer\Stream(BP.'/var/log/'.$fileName);
         $logger = new \Zend\Log\Logger();
@@ -59,5 +61,19 @@ class Tools extends AbstractHelper
             $messageType = 'info';
         }
         $logger->$messageType($message, $details);
+    }
+
+    public function getCurrentUserAttribute($attributeName)
+    {
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $session = $objectManager->create('Magento\Customer\Model\Session');
+        $customerRepository = $objectManager->create('Magento\Customer\Model\ResourceModel\CustomerRepository');
+        $customer = $customerRepository->getById($session->getCustomerId());
+        $attribute = $customer->getCustomAttribute($attributeName);
+        if ($attribute === null) {
+            return false;
+        } else {
+            return $attribute->getValue();
+        }
     }
 }
