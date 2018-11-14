@@ -7,6 +7,8 @@ use Magento\Shipping\Model\Rate\Result;
 class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implements
     \Magento\Shipping\Model\Carrier\CarrierInterface
 {
+    public const CUSTOMER_DISABLE_ATTRIBUTE = 'gls_dk_disabled';
+
     /**
      * @var string
      * Must not contain underscores. Alphanumeric preferred, other characters may function (untested).
@@ -74,6 +76,13 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
     public function collectRates(RateRequest $request)
     {
         if (!$this->getConfigFlag('active')) {
+            return false;
+        }
+        
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $tools = $objectManager->create('Baze\ShippingGLS\Helper\Tools');
+
+        if ($tools->getCurrentUserAttribute(self::CUSTOMER_DISABLE_ATTRIBUTE) == true) {
             return false;
         }
 
